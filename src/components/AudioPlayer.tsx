@@ -1,11 +1,12 @@
 import { useState, useEffect } from "react";
 import { FaVolumeMute } from "react-icons/fa";
 import Lottie from "lottie-react";
-import musicAnimation from "../../public/Animation.json"; // Path in public folder
+import musicAnimation from "../../public/Animation.json";
+import audiomp3 from "../../public/inspiring-optimistic.mp3";
 
 const AudioPlayer = () => {
   const [isMuted, setIsMuted] = useState(false);
-  const [audio] = useState(new Audio("/public/inspiring-optimistic.mp3"));
+  const [audio] = useState(new Audio(audiomp3));
 
   useEffect(() => {
     const handleUserInteraction = () => {
