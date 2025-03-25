@@ -1,36 +1,48 @@
 import { useState, useEffect } from "react";
 import { FaVolumeMute } from "react-icons/fa";
 import Lottie from "lottie-react";
-import musicAnimation from "../../public/Animation.json";
-import audiomp3 from "../../public/inspiring-optimistic.mp3";
 
 const AudioPlayer = () => {
   const [isMuted, setIsMuted] = useState(false);
-  const [audio] = useState(new Audio(audiomp3));
+  const [animationData, setAnimationData] = useState(null);
+  const [audio] = useState(() => new Audio("/inspiring-optimistic.mp3")); // Ensure correct path
 
+  // Load Lottie animation dynamically
   useEffect(() => {
-    const handleUserInteraction = () => {
-      audio.play().catch((err) => console.log("Autoplay blocked:", err));
-      audio.loop = true;
+    fetch("/Animation.json")
+      .then((res) => res.json())
+      .then((data) => setAnimationData(data))
+      .catch((err) => console.error("Failed to load animation:", err));
+  }, []);
+
+  // Handle user interaction for autoplay
+  useEffect(() => {
+    const handleUserInteraction = async () => {
+      try {
+        await audio.play();
+        audio.loop = true;
+        console.log("Audio playing...");
+      } catch (err) {
+        console.error("Autoplay blocked:", err);
+      }
       window.removeEventListener("click", handleUserInteraction);
       window.removeEventListener("scroll", handleUserInteraction);
     };
 
-    audio.addEventListener("canplaythrough", handleUserInteraction);
     window.addEventListener("click", handleUserInteraction);
     window.addEventListener("scroll", handleUserInteraction);
 
     return () => {
       window.removeEventListener("click", handleUserInteraction);
       window.removeEventListener("scroll", handleUserInteraction);
-      audio.removeEventListener("canplaythrough", handleUserInteraction);
       audio.pause();
       audio.currentTime = 0;
     };
   }, [audio]);
 
+  // Toggle mute/unmute
   const toggleMute = () => {
-    setIsMuted(!isMuted);
+    setIsMuted((prevMuted) => !prevMuted);
     audio.muted = !isMuted;
   };
 
@@ -41,13 +53,15 @@ const AudioPlayer = () => {
         className="flex items-center justify-center p-0 bg-gray-800 text-white rounded-full hover:bg-gray-700 transition duration-300 w-10 h-10"
       >
         {isMuted ? (
-          <FaVolumeMute />
+          <FaVolumeMute className="text-2xl" />
         ) : (
-          <Lottie
-            className="text-4xl"
-            animationData={musicAnimation}
-            loop={true}
-          />
+          animationData && (
+            <Lottie
+              className="w-10 h-10"
+              animationData={animationData}
+              loop={true}
+            />
+          )
         )}
       </button>
     </div>
