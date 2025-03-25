@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { SparklesCore } from "./ui/sparkles";
 
 const Navbar = () => {
