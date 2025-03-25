@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
-import { FaVolumeMute } from "react-icons/fa";
 import Lottie from "lottie-react";
+import { IoPlay } from "react-icons/io5";
 
 const AudioPlayer = () => {
   const [isMuted, setIsMuted] = useState(false);
@@ -50,10 +50,10 @@ const AudioPlayer = () => {
     <div className="fixed top-4 right-5 flex flex-col items-center justify-center p-0 bg-opacity-30 rounded-lg shadow-lg bg-black">
       <button
         onClick={toggleMute}
-        className="flex items-center justify-center p-0 bg-gray-800 text-white rounded-full hover:bg-gray-700 transition duration-300 w-10 h-10"
+        className="flex items-center justify-center p-2 bg-gray-800 text-white rounded-full hover:bg-gray-700 transition duration-300 w-10 h-10"
       >
         {isMuted ? (
-          <FaVolumeMute className="text-2xl" />
+          <IoPlay />
         ) : (
           animationData && (
             <Lottie

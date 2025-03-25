@@ -8,7 +8,7 @@ const Navbar = () => {
         {/* Logo */}
 
         <div className=" w-[150px] flex flex-col items-center justify-center overflow-hidden rounded-md ">
-          <h1 className="text-2xl font-bold text-center  relative z-20 bg-gradient-to-tr from-teal-300 to-indigo-400 bg-clip-text text-transparent">
+          <h1 className="text-2xl font-bold text-center  relative z-20 bg-gradient-to-r from-teal-500 to-orange-500 bg-clip-text text-transparent">
             <span>Pwn</span>
             <span className="">Kdm</span>
           </h1>
