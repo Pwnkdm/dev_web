@@ -47,7 +47,7 @@
 
 // export default AudioPlayer;
 
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { FaVolumeUp, FaVolumeMute } from "react-icons/fa"; // Using react-icons for volume icons
 
 const AudioPlayer = () => {

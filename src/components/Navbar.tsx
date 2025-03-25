@@ -1,19 +1,8 @@
-import React, { useState } from "react";
-import { SunIcon, MoonIcon } from "@heroicons/react/solid"; // Import icons from Heroicons
+import { useState } from "react";
 import { SparklesCore } from "./ui/sparkles";
 
 const Navbar = () => {
   const [isDarkMode, setIsDarkMode] = useState(false);
-
-  const toggleDarkMode = () => {
-    setIsDarkMode(!isDarkMode);
-    // Toggle dark mode class on the body or root element
-    if (!isDarkMode) {
-      document.documentElement.classList.add("dark");
-    } else {
-      document.documentElement.classList.remove("dark");
-    }
-  };
 
   return (
     <nav className={`bg-transparent p-4`}>
@@ -47,18 +36,6 @@ const Navbar = () => {
 
         {/* Spacer to push the toggle to the right */}
         <div className="flex-grow"></div>
-
-        {/* Dark/Light Mode Toggle Button */}
-        {/* <button
-          onClick={toggleDarkMode}
-          className="bg-gray-800 dark:bg-gray-600 text-gray-800 dark:text-white p-2 rounded-md"
-        >
-          {isDarkMode ? (
-            <SunIcon className="h-6 w-6 text-amber-400" />
-          ) : (
-            <MoonIcon className="h-6 w-6 text-white" />
-          )}
-        </button> */}
       </div>
     </nav>
   );
