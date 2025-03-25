@@ -2,9 +2,6 @@ import { useState } from "react";
 import { SparklesCore } from "./ui/sparkles";
 
 const Navbar = () => {
-  const [isDarkMode, setIsDarkMode] = useState(false);
-
-  return (
     <nav className={`bg-transparent p-4`}>
       <div className="flex items-center justify-between">
         {/* Logo */}
