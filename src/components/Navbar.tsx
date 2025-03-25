@@ -1,3 +1,4 @@
+import AudioPlayer from "./AudioPlayer";
 import { SparklesCore } from "./ui/sparkles";
 
 const Navbar = () => {
@@ -33,6 +34,8 @@ const Navbar = () => {
 
         {/* Spacer to push the toggle to the right */}
         <div className="flex-grow"></div>
+
+        <AudioPlayer />
       </div>
     </nav>
   );
