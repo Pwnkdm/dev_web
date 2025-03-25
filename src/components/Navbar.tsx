@@ -1,0 +1,67 @@
+import React, { useState } from "react";
+import { SunIcon, MoonIcon } from "@heroicons/react/solid"; // Import icons from Heroicons
+import { SparklesCore } from "./ui/sparkles";
+
+const Navbar = () => {
+  const [isDarkMode, setIsDarkMode] = useState(false);
+
+  const toggleDarkMode = () => {
+    setIsDarkMode(!isDarkMode);
+    // Toggle dark mode class on the body or root element
+    if (!isDarkMode) {
+      document.documentElement.classList.add("dark");
+    } else {
+      document.documentElement.classList.remove("dark");
+    }
+  };
+
+  return (
+    <nav className={`bg-transparent p-4`}>
+      <div className="flex items-center justify-between">
+        {/* Logo */}
+
+        <div className=" w-[150px] flex flex-col items-center justify-center overflow-hidden rounded-md ">
+          <h1 className="text-2xl font-bold text-center  relative z-20 bg-gradient-to-tr from-teal-300 to-indigo-400 bg-clip-text text-transparent">
+            <span>Pwn</span>
+            <span className="">Kdm</span>
+          </h1>
+          <div className="w-[40rem] h-5 relative bg-transparent">
+            {/* Gradients */}
+            <div className="absolute inset-x-20 top-0 bg-gradient-to-r from-transparent via-indigo-500 to-transparent h-[2px] w-3/4 blur-sm" />
+            <div className="absolute inset-x-20 top-0 bg-gradient-to-r from-transparent via-indigo-500 to-transparent h-px w-3/4" />
+            <div className="absolute inset-x-60 top-0 bg-gradient-to-r from-transparent via-sky-500 to-transparent h-[5px] w-1/4 blur-sm" />
+            <div className="absolute inset-x-60 top-0 bg-gradient-to-r from-transparent via-sky-500 to-transparent h-px w-1/4" />
+
+            {/* Core component */}
+            <SparklesCore
+              background="transparent"
+              minSize={0.4}
+              maxSize={1}
+              particleDensity={1200}
+              className="w-full h-full"
+              particleColor="#FFFFFF"
+            />
+            <div className="absolute inset-0 w-full h-full bg-black [mask-image:radial-gradient(350px_200px_at_top,transparent_20%,white)]"></div>
+          </div>
+        </div>
+
+        {/* Spacer to push the toggle to the right */}
+        <div className="flex-grow"></div>
+
+        {/* Dark/Light Mode Toggle Button */}
+        {/* <button
+          onClick={toggleDarkMode}
+          className="bg-gray-800 dark:bg-gray-600 text-gray-800 dark:text-white p-2 rounded-md"
+        >
+          {isDarkMode ? (
+            <SunIcon className="h-6 w-6 text-amber-400" />
+          ) : (
+            <MoonIcon className="h-6 w-6 text-white" />
+          )}
+        </button> */}
+      </div>
+    </nav>
+  );
+};
+
+export default Navbar;

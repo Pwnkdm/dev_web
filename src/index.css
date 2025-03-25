@@ -1,13 +1,15 @@
 @import url("https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap");
 @import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
 
 * {
   font-family: "Lexend", sans-serif !important;
 }
 
 :root {
-  color: white;
-  background-color: #242424;
+  /* color: white; */
+  /* background-color: #242424; */
+  /* background: linear-gradient(to right, #1a202c, #000000); */
 }
 
 body {

@@ -1,14 +1,21 @@
 import { useState } from "react";
 import "./App.css";
-import { HeroHighlightDemo } from "./components/HeroHighlight";
+import Navbar from "./components/Navbar";
+import Hero from "./components/Hero";
+import AudioPlayer from "./components/AudioPlayer";
 
 function App() {
   const [count, setCount] = useState(0);
 
+  // bg-white dark:
   return (
-    <>
-      <HeroHighlightDemo />{" "}
-    </>
+    <div className="h-screen bg-black">
+      <Navbar />
+      <div className="p-8">
+        <Hero />
+        <AudioPlayer />
+      </div>
+    </div>
   );
 }
 
