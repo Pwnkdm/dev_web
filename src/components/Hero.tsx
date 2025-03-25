@@ -1,4 +1,4 @@
-import { Opacity } from "@tsparticles/engine";
+
 import { motion } from "motion/react";
 const Hero = () => {
   return (
