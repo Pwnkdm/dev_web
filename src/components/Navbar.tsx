@@ -3,7 +3,7 @@ import { SparklesCore } from "./ui/sparkles";
 
 const Navbar = () => {
   return (
-    <nav className={`bg-transparent p-4`}>
+    <nav className={`bg-transparent p-4 w-fit`}>
       <div className="flex items-center justify-between">
         {/* Logo */}
 
