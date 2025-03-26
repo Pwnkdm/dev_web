@@ -5,7 +5,7 @@ import { IoPlay } from "react-icons/io5";
 const AudioPlayer = () => {
   const [isMuted, setIsMuted] = useState(false);
   const [animationData, setAnimationData] = useState(null);
-  const [audio] = useState(() => new Audio("/inspiring-optimistic.mp3")); // Ensure correct path
+  const [audio] = useState(() => new Audio("/mingle-game.mp3")); // Ensure correct path
 
   // Load Lottie animation dynamically
   useEffect(() => {
@@ -50,7 +50,7 @@ const AudioPlayer = () => {
     <div className="fixed top-4 right-5 flex flex-col items-center justify-center p-0 bg-opacity-30 rounded-lg shadow-lg bg-black">
       <button
         onClick={toggleMute}
-        className="flex items-center justify-center p-2 bg-gray-800 text-white rounded-full hover:bg-gray-700 transition duration-300 w-10 h-10"
+        className="flex items-center justify-center text-white rounded-full hover:bg-gray-700 transition duration-300 w-10 h-10"
       >
         {isMuted ? (
           <IoPlay />

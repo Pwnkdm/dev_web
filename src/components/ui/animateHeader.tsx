@@ -59,7 +59,7 @@ const AnimatedHeader: React.FC<AnimatedHeaderProps> = ({
       )}
 
       <motion.h2
-        className={`text-4xl font-bold text-white ${className} ${
+        className={`text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold text-white ${className} ${
           align === "right" ? "ml-4" : "mr-4"
         }`}
         initial="hidden"
