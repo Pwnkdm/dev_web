@@ -5,6 +5,7 @@ import Logo from "./components/Logo";
 import { Cards } from "./components/ui/cards";
 import AnimatedHeader from "./components/ui/animateHeader";
 import { InfiniteMovingCards } from "./components/ui/infinite-moving-cards";
+import { LinkPreview } from "./components/ui/link-preview";
 // import Drag from "./components/FallowPointer";
 
 function App() {
