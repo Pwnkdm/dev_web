@@ -35,7 +35,7 @@ const Hero = () => {
       <div className="w-fit max-w-[40rem] px-4 mx-auto">
         <TypewriterEffectSmooth
           cursorClassName="hidden"
-          className="text-sm sm:text-base md:text-lg dark:text-white mb-0 text-center "
+          className="text-sm sm:text-base md:text-lg dark:text-white mb-0 text-center"
           words={words1}
         />
       </div>
@@ -65,7 +65,15 @@ const Hero = () => {
       </motion.div>
 
       {/* Bio Section */}
-      <AnimatedHeader text="About" lineColor="bg-neutral-500" align="left" />
+      <AnimatedHeader
+        text="About."
+        align="left"
+        headerAnimationDuration={1.5} // Header will animate for 1.5 seconds
+        lineAnimationDuration={1} // Line will animate for 1 second
+        headerAnimationDelay={5} // Header will appear 0.5 seconds after the page loads
+        lineAnimationDelay={1} // Line will appear 1 second after the header
+      />
+
       <motion.p
         initial={{ opacity: 0, y: 100 }}
         animate={{ opacity: 1, y: 0, x: 0 }}
@@ -93,6 +101,16 @@ const Hero = () => {
         creating engaging user experiences. Let's build something amazing
         together! 🚀
       </motion.p>
+
+      {/* Projects section  */}
+      <AnimatedHeader
+        text="Projects."
+        align="right"
+        headerAnimationDuration={1.5} // Header will animate for 1.5 seconds
+        lineAnimationDuration={1} // Line will animate for 1 second
+        headerAnimationDelay={5} // Header will appear 0.5 seconds after the page loads
+        lineAnimationDelay={1} // Line will appear 1 second after the header
+      />
     </div>
   );
 };

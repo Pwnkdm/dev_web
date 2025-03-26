@@ -6,30 +6,38 @@ interface AnimatedHeaderProps {
   className?: string;
   align?: "left" | "right";
   lineColor?: string; // Use bg-* classes like "bg-gray-500/30"
+  headerAnimationDuration?: number; // Time in seconds for the header animation
+  lineAnimationDuration?: number; // Time in seconds for the line animation
+  headerAnimationDelay?: number; // Delay in seconds before header becomes visible
+  lineAnimationDelay?: number; // Delay in seconds before line becomes visible
 }
 
-const headerVariants = {
+const headerVariants = (duration: number, delay: number) => ({
   hidden: { opacity: 0, y: 20 },
   visible: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.7, ease: "easeOut" },
+    transition: { duration: duration, ease: "easeOut", delay: delay },
   },
-};
+});
 
-const lineVariants = {
+const lineVariants = (duration: number, delay: number) => ({
   hidden: { width: "0%" }, // Explicitly set unit
   visible: {
     width: "100%",
-    transition: { duration: 0.9, ease: "easeOut", delay: 0.9 }, // Increased duration
+    transition: { duration: duration, ease: "easeOut", delay: delay },
   },
-};
+});
 
 const AnimatedHeader: React.FC<AnimatedHeaderProps> = ({
   text,
   className = "",
   align = "left",
   lineColor = "bg-gray-500/30",
+  headerAnimationDuration = 0.9, // Default 0.9 seconds if not provided
+  lineAnimationDuration = 0.9, // Default 0.9 seconds if not provided
+  headerAnimationDelay = 0, // Default no delay for the header
+  lineAnimationDelay = 0, // Default no delay for the line
 }) => {
   return (
     <div
@@ -43,7 +51,10 @@ const AnimatedHeader: React.FC<AnimatedHeaderProps> = ({
           style={{ maxWidth: "100%" }} // Optional: limit line length
           initial="hidden"
           animate="visible"
-          variants={lineVariants}
+          variants={lineVariants(
+            lineAnimationDuration,
+            headerAnimationDelay + lineAnimationDelay
+          )}
         />
       )}
 
@@ -53,7 +64,7 @@ const AnimatedHeader: React.FC<AnimatedHeaderProps> = ({
         }`}
         initial="hidden"
         animate="visible"
-        variants={headerVariants}
+        variants={headerVariants(headerAnimationDuration, headerAnimationDelay)}
       >
         {text}
       </motion.h2>
@@ -64,7 +75,10 @@ const AnimatedHeader: React.FC<AnimatedHeaderProps> = ({
           style={{ maxWidth: "100%" }} // Optional: limit line length
           initial="hidden"
           animate="visible"
-          variants={lineVariants}
+          variants={lineVariants(
+            lineAnimationDuration,
+            headerAnimationDelay + lineAnimationDelay
+          )}
         />
       )}
     </div>
