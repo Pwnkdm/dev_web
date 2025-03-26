@@ -1,64 +1,80 @@
 import { motion } from "motion/react";
 import { FlipWords } from "./ui/flip-words";
 // import { Spotlight } from "./ui/spotlight";
-// import { TextRevealCard } from "./ui/text-reveal-card";
 import { TypewriterEffectSmooth } from "./ui/typewriter-effect";
+import AnimatedHeader from "./ui/animateHeader";
 
 const Hero = () => {
   const words1 = [
-    { text: "Hi," },
-    { text: "my" },
-    { text: "name" },
-    { text: "is.", className: "text-blue-500 dark:text-blue-500" },
+    {
+      text: "Hi,",
+      className: "text-neutral-500 text-sm sm:text-base md:text-lg lg:text-xl",
+    },
+    {
+      text: "my",
+      className: "text-neutral-500 text-sm sm:text-base md:text-lg lg:text-xl",
+    },
+    {
+      text: "name",
+      className: "text-neutral-500 text-sm sm:text-base md:text-lg lg:text-xl",
+    },
+    {
+      text: "is",
+      className:
+        "text-blue-500 dark:text-blue-500 text-sm sm:text-base md:text-lg lg:text-xl",
+    },
   ];
+
   const words = ["Web.", "Mobile."];
 
   return (
-    <div className="relative w-fit border-2 text-white flex flex-col items-center justify-center px-6 py-10 sm:py-16 ">
+    <div className="relative w-full text-white flex flex-col items-center justify-center px-6">
       {/* <Spotlight /> */}
 
       {/* Typewriter Effect */}
-      <div className="w-full max-w-[40rem] px-4 mx-auto">
+      <div className="w-fit max-w-[40rem] px-4 mx-auto">
         <TypewriterEffectSmooth
           cursorClassName="hidden"
-          className="text-sm text-center sm:text-base md:text-lg"
+          className="text-sm sm:text-base md:text-lg dark:text-white mb-0 text-center "
           words={words1}
         />
       </div>
 
       {/* Name */}
-      <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mt-4 text-center leading-tight">
-        <span className="bg-gradient-to-r from-teal-500 to-orange-500 bg-clip-text text-transparent">
+      <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-center leading-tight mt-6">
+        <motion.span
+          initial={{ opacity: 0, y: 200 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1, delay: 3, ease: "easeIn" }}
+          className="bg-gradient-to-r from-teal-500 to-orange-500 bg-clip-text text-transparent"
+        >
           PawanRaje Kadam.
-        </span>
+        </motion.span>
       </h1>
 
       {/* Flip Words Animation */}
-      <div className="h-[8rem] flex justify-center items-center px-4">
-        <p className="text-lg sm:text-xl md:text-2xl font-normal text-neutral-400">
+      <motion.div
+        initial={{ opacity: 0, y: 200 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 1, delay: 4, ease: "easeIn" }}
+        className="h-[4rem] flex justify-center items-center text-center mt-4"
+      >
+        <p className="text-lg sm:text-xl md:text-2xl font-normal text-neutral-400 px-5">
           I build things for the <FlipWords words={words} />
         </p>
-      </div>
-
-      {/* Text Reveal Card */}
-      {/* <div className="flex items-center justify-center w-full">
-        <TextRevealCard
-          className="bg-transparent border-0"
-          text="You know the business"
-          revealText="I know the chemistry"
-        />
-      </div> */}
+      </motion.div>
 
       {/* Bio Section */}
+      <AnimatedHeader text="About" lineColor="bg-neutral-500" align="left" />
       <motion.p
         initial={{ opacity: 0, y: 100 }}
         animate={{ opacity: 1, y: 0, x: 0 }}
         transition={{
           duration: 1,
-          delay: 0.3,
+          delay: 5,
           ease: "circOut",
         }}
-        className="text-gray-300 mt-10 text-center leading-relaxed w-full max-w-[50rem] px-4 sm:px-0 mx-auto"
+        className="text-gray-300 mt-10 text-center leading-relaxed w-full max-w-[50rem] px-4 sm:px-6 mx-auto"
       >
         Hey there! 👋 I'm a passionate{" "}
         <span className="text-white font-semibold">MERN Stack Developer</span>{" "}
