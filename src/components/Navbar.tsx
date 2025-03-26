@@ -1,5 +1,4 @@
 import AudioPlayer from "./AudioPlayer";
-import { SparklesCore } from "./ui/sparkles";
 
 const Navbar = () => {
   return (
